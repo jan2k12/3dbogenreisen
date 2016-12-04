@@ -26,7 +26,9 @@
 
     </div>
 </footer>
-
+<script>
+    $(".img-responsive").responsiveImg();
+</script>
 <?php wp_footer(); ?>
 </div>
 </body>

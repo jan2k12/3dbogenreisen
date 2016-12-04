@@ -37,6 +37,7 @@ if ( ! function_exists( 'bogenreisen_setup' ) ) :
 		set_post_thumbnail_size( 1200, 9999 );
 
 		add_image_size('cardImage',330,168,true);
+		add_image_size('postpreview',250,250,true);
 		add_theme_support( 'post-formats', array(
 			'aside',
 			'image',
@@ -113,12 +114,15 @@ function get_material_font(){
 function bogenreisenStylesAndScripts() {
 	wp_enqueue_style( 'material-font', get_material_font(), array(), null );
 	wp_enqueue_style( 'material-fonts-icon', material_fonts_icon(), array(), null );
+	wp_enqueue_style( 'bogenreisen-bootstrap', get_template_directory_uri().'/css/bootstrap.min.css' );
 	wp_enqueue_style( 'materialDesign',
 		get_template_directory_uri() . '/css/material.min.css',
 		array( ),
 		null );
+
 	wp_enqueue_style( 'bogenreisen-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'materialScript', get_template_directory_uri() . '/js/material.min.js' );
+	wp_enqueue_script('bootstrap',get_template_directory_uri().'/js/bootstrap.min.js');
 }
 
 add_action( 'wp_enqueue_scripts', 'bogenreisenStylesAndScripts' );
